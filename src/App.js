@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './Components/Page/Home/Home';
 import User from './Components/Page/ManageUser/User';
-import Phongban from "./Components/Page/Phongban/Phongban";
 import User2 from'./Components/Page/User2/UserV2';
 
 import './App.css';
@@ -73,9 +72,9 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/quan-ly-user" element={<User />} />
-                    <Route path="/quan-ly-phong-ban" element={<Phongban />} />
+                   
                     <Route path="/dang-nhap" element={<Dangnhap isAuthen={true} />} />
-                    <Route path="/quan-ly-nguoi-dung-v2" elment={<User2/>}/>
+                    <Route path="/quan-ly-nguoi-dung-v2" elment={<User/>}/>
                   </Routes>
                 </main>
                 :

@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>File Compare</title>
+  <style type="text/css">
+  #page {
+    font-family: sans-serif;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  td {
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: x-small;
+    vertical-align: top;
+  }
+  td.fileName {
+    background: #E6E6E6;
+    font-family: sans-serif;
+    font-size: small;
+  }
+  td.lineNumber {
+    text-align: right;
+    background: #FFC800;
+  }
+  td.added {
+    background: #BEF0BE;
+  }
+  td.removed {
+    background: #C8C8FF;
+  }
+  td.changed {
+    background: #FFC8C8;
+  }
+  td.equal {
+    background: #FFFFFF;
+  }
+  td.empty {
+    background: #F2F2F2;
+  }
+  </style>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+  <table>
+    <tr>
+      <td colspan="2" class="filename">src/App.js&nbsp;(Index)</td>
+      <td colspan="2" class="filename">src/App.js&nbsp;(Working&nbsp;Tree)</td>
+    </tr>
+      <tr>
+<td class="lineNumber">1</td><td class="changed">import&nbsp;logo&nbsp;from&nbsp;'./logo.svg';</td><td class="lineNumber">1</td><td class="changed">//&nbsp;import&nbsp;logo&nbsp;from&nbsp;'./logo.svg';</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">2</td><td class="changed">import&nbsp;React,&nbsp;{&nbsp;useState,&nbsp;useEffect&nbsp;}&nbsp;from&nbsp;&quot;react&quot;;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">3</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">4</td><td class="changed">import&nbsp;{&nbsp;BrowserRouter&nbsp;as&nbsp;Router,&nbsp;Routes,&nbsp;Route,&nbsp;Link&nbsp;}&nbsp;from&nbsp;&quot;react-router-dom&quot;;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">5</td><td class="changed">import&nbsp;Home&nbsp;from&nbsp;'./Components/Page/Home/Home';</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">6</td><td class="changed">import&nbsp;User&nbsp;from&nbsp;'./Components/Page/ManageUser/User';</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">7</td><td class="changed">import&nbsp;Phongban&nbsp;from&nbsp;&quot;./Components/Page/Phongban/Phongban&quot;;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">8</td><td class="changed">import&nbsp;User2&nbsp;from'./Components/Page/User2/UserV2';</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">9</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">2</td><td class="equal">import&nbsp;'./App.css';</td><td class="lineNumber">10</td><td class="equal">import&nbsp;'./App.css';</td>
+      </tr>
+      <tr>
+<td class="lineNumber">3</td><td class="changed"></td><td class="lineNumber">11</td><td class="changed">import&nbsp;Dangnhap&nbsp;from&nbsp;&quot;./Components/Page/Dangnhap/Dangnhap&quot;;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">4</td><td class="equal">function&nbsp;App()&nbsp;{</td><td class="lineNumber">12</td><td class="equal">function&nbsp;App()&nbsp;{</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">13</td><td class="added">&nbsp;&nbsp;const&nbsp;[isAuthen,&nbsp;setIsAuthen]&nbsp;=&nbsp;useState(false);</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">14</td><td class="added">&nbsp;&nbsp;useEffect(()&nbsp;=&gt;&nbsp;{</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">15</td><td class="added">&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(()&nbsp;=&gt;&nbsp;{</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">16</td><td class="added">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setIsAuthen(true)</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">17</td><td class="added">&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;500);</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">18</td><td class="added">&nbsp;&nbsp;},&nbsp;[])</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">19</td><td class="added"></td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="empty"></td><td class="lineNumber">20</td><td class="added"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">5</td><td class="equal">&nbsp;&nbsp;return&nbsp;(</td><td class="lineNumber">21</td><td class="equal">&nbsp;&nbsp;return&nbsp;(</td>
+      </tr>
+      <tr>
+<td class="lineNumber">6</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;App&quot;&gt;</td><td class="lineNumber">22</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;main&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">7</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&nbsp;className=&quot;App-header&quot;&gt;</td><td class="lineNumber">23</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&nbsp;className=&quot;navbar&nbsp;navbar-expand-lg&nbsp;navbar-dark&nbsp;bg-dark&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">8</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;src={logo}&nbsp;className=&quot;App-logo&quot;&nbsp;alt=&quot;logo&quot;&nbsp;/&gt;</td><td class="lineNumber">24</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;container-fluid&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">9</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</td><td class="lineNumber">25</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;className=&quot;navbar-brand&quot;&nbsp;href=&quot;#&quot;&gt;Trang&nbsp;admin&lt;/a&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">10</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&lt;code&gt;src/App.js&lt;/code&gt;&nbsp;and&nbsp;save&nbsp;to&nbsp;reload.</td><td class="lineNumber">26</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">11</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</td><td class="lineNumber">27</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">12</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a</td><td class="lineNumber">28</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">13</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;className=&quot;App-link&quot;</td><td class="lineNumber">29</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Router&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">14</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;href=&quot;https://reactjs.org&quot;</td><td class="lineNumber">30</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;container-fluid&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">15</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target=&quot;_blank&quot;</td><td class="lineNumber">31</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;row&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">16</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rel=&quot;noopener&nbsp;noreferrer&quot;</td><td class="lineNumber">32</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&nbsp;className=&quot;col-md-3&nbsp;col-lg-2&nbsp;d-md-block&nbsp;bg-light&nbsp;sidebar&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">17</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;</td><td class="lineNumber">33</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;position-sticky&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">18</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Learn&nbsp;React</td><td class="lineNumber">34</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&nbsp;className=&quot;nav&nbsp;flex-column&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">19</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;</td><td class="lineNumber">35</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;className=&quot;nav-item&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">20</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;</td><td class="lineNumber">36</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;className=&quot;nav-link&nbsp;active&quot;&nbsp;href=&quot;/&quot;&gt;&lt;svg&nbsp;xmlns=&quot;http://www.w3.org/2000/svg&quot;&nbsp;width=&quot;16&quot;&nbsp;height=&quot;1<br>6&quot;&nbsp;fill=&quot;currentColor&quot;&nbsp;className=&quot;bi&nbsp;bi-house-door-fill&quot;&nbsp;viewBox=&quot;0&nbsp;0&nbsp;16&nbsp;16&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">37</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;d=&quot;M6.5&nbsp;14.5v-3.505c0-.245.25-.495.5-.495h2c.25&nbsp;0&nbsp;.5.25.5.5v3.5a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5.5h4a.5.5&nbsp;0&nbsp;0&nbsp;0<br>&nbsp;.5-.5v-7a.5.5&nbsp;0&nbsp;0&nbsp;0-.146-.354L13&nbsp;5.793V2.5a.5.5&nbsp;0&nbsp;0&nbsp;0-.5-.5h-1a.5.5&nbsp;0&nbsp;0&nbsp;0-.5.5v1.293L8.354&nbsp;1.146a.5.5&nbsp;0&nbsp;0&nbsp;0-.708&nbsp;0l-6&nbsp;6<br>A.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5&nbsp;7.5v7a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5.5h4a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5-.5&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">38</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/svg&gt;Trang&nbsp;ch&#7911;&nbsp;&lt;/a&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">39</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">40</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;className=&quot;nav-item&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">41</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;className=&quot;nav-link&quot;&nbsp;href=&quot;/quan-ly-phong-ban&quot;&gt;&lt;svg&nbsp;xmlns=&quot;http://www.w3.org/2000/svg&quot;&nbsp;width=&quot;16&quot;<br>&nbsp;height=&quot;16&quot;&nbsp;fill=&quot;currentColor&quot;&nbsp;className=&quot;bi&nbsp;bi-building&quot;&nbsp;viewBox=&quot;0&nbsp;0&nbsp;16&nbsp;16&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">42</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;d=&quot;M4&nbsp;2.5a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5-.5h1a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5.5h-1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5-.5zm3&nbsp;0a.5.5<br>&nbsp;0&nbsp;0&nbsp;1&nbsp;.5-.5h1a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5.5h-1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5-.5zm3.5-.5a.5.5&nbsp;0&nbsp;0&nbsp;0-.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5.5h1a.5.5&nbsp;0&nbsp;<br>0&nbsp;0&nbsp;.5-.5v-1a.5.5&nbsp;0&nbsp;0&nbsp;0-.5-.5zM4&nbsp;5.5a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5-.5h1a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5.5h-1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5-.5zM7.5&nbsp;5a.5.<br>5&nbsp;0&nbsp;0&nbsp;0-.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5.5h1a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5-.5v-1a.5.5&nbsp;0&nbsp;0&nbsp;0-.5-.5zm2.5.5a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5-.5h1a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5.5v1a.5.5&nbsp;0<br>&nbsp;0&nbsp;1-.5.5h-1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5-.5zM4.5&nbsp;8a.5.5&nbsp;0&nbsp;0&nbsp;0-.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5.5h1a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5-.5v-1a.5.5&nbsp;0&nbsp;0&nbsp;0-.5-.5zm2.5.5a.5.<br>5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5-.5h1a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5.5h-1a.5.5&nbsp;0&nbsp;0&nbsp;1-.5-.5zm3.5-.5a.5.5&nbsp;0&nbsp;0&nbsp;0-.5.5v1a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.5.5h1a.5.5&nbsp;0<br>&nbsp;0&nbsp;0&nbsp;.5-.5v-1a.5.5&nbsp;0&nbsp;0&nbsp;0-.5-.5z&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">43</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;d=&quot;M2&nbsp;1a1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1-1h10a1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1v14a1&nbsp;1&nbsp;0&nbsp;0&nbsp;1-1&nbsp;1H3a1&nbsp;1&nbsp;0&nbsp;0&nbsp;1-1-1zm11&nbsp;0H3v14h3v-2.5a.5<br>.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5-.5h3a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5.5V15h3z&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">44</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/svg&gt;Qu&#7843;n&nbsp;l&#253;&nbsp;ph&#242;ng&nbsp;ban&lt;/a&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">45</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">46</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;className=&quot;nav-item&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">47</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;className=&quot;nav-link&quot;&nbsp;href=&quot;/quan-ly-user&quot;&gt;&lt;svg&nbsp;xmlns=&quot;http://www.w3.org/2000/svg&quot;&nbsp;width=&quot;16&quot;&nbsp;heig<br>ht=&quot;16&quot;&nbsp;fill=&quot;currentColor&quot;&nbsp;className=&quot;bi&nbsp;bi-person-raised-hand&quot;&nbsp;viewBox=&quot;0&nbsp;0&nbsp;16&nbsp;16&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">48</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;d=&quot;M6&nbsp;6.207v9.043a.75.75&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5&nbsp;0V10.5a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0v4.75a.75.75&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5&nbsp;0v-8.5a.25.25<br>&nbsp;0&nbsp;1&nbsp;1&nbsp;.5&nbsp;0v2.5a.75.75&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5&nbsp;0V6.5a3&nbsp;3&nbsp;0&nbsp;0&nbsp;0-3-3H6.236a1&nbsp;1&nbsp;0&nbsp;0&nbsp;1-.447-.106l-.33-.165A.83.83&nbsp;0&nbsp;0&nbsp;1&nbsp;5&nbsp;2.488V.75a.75.75<br>&nbsp;0&nbsp;0&nbsp;0-1.5&nbsp;0v2.083c0&nbsp;.715.404&nbsp;1.37&nbsp;1.044&nbsp;1.689L5.5&nbsp;5c.32.32.5.754.5&nbsp;1.207&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">49</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;d=&quot;M8&nbsp;3a1.5&nbsp;1.5&nbsp;0&nbsp;1&nbsp;0&nbsp;0-3&nbsp;1.5&nbsp;1.5&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;3&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">50</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/svg&gt;Qu&#7843;n&nbsp;l&#253;&nbsp;ng&#432;&#7901;i&nbsp;d&#249;ng&lt;/a&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">51</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">52</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;className=&quot;nav-item&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">53</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;className=&quot;nav-link&quot;&nbsp;href=&quot;/dang-nhap&quot;&gt;&lt;svg&nbsp;xmlns=&quot;http://www.w3.org/2000/svg&quot;&nbsp;width=&quot;16&quot;&nbsp;height=<br>&quot;16&quot;&nbsp;fill=&quot;currentColor&quot;&nbsp;className=&quot;bi&nbsp;bi-box-arrow-in-right&quot;&nbsp;viewBox=&quot;0&nbsp;0&nbsp;16&nbsp;16&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">54</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;fillRule=&quot;evenodd&quot;&nbsp;d=&quot;M6&nbsp;3.5a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5-.5h8a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;.5.5v9a.5.5&nbsp;0&nbsp;0&nbsp;1-.5.5h-8a.5.5&nbsp;0&nbsp;<br>0&nbsp;1-.5-.5v-2a.5.5&nbsp;0&nbsp;0&nbsp;0-1&nbsp;0v2A1.5&nbsp;1.5&nbsp;0&nbsp;0&nbsp;0&nbsp;6.5&nbsp;14h8a1.5&nbsp;1.5&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5-1.5v-9A1.5&nbsp;1.5&nbsp;0&nbsp;0&nbsp;0&nbsp;14.5&nbsp;2h-8A1.5&nbsp;1.5&nbsp;0&nbsp;0&nbsp;0&nbsp;5&nbsp;3.<br>5v2a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;0z&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">55</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;fillRule=&quot;evenodd&quot;&nbsp;d=&quot;M11.854&nbsp;8.354a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;0-.708l-3-3a.5.5&nbsp;0&nbsp;1&nbsp;0-.708.708L10.293&nbsp;7.5H1.<br>5a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;1h8.793l-2.147&nbsp;2.146a.5.5&nbsp;0&nbsp;0&nbsp;0&nbsp;.708.708z&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">56</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/svg&gt;&#272;&#259;ng&nbsp;Nh&#7853;p&lt;/a&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">57</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">58</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&nbsp;className=&quot;nav-item&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">59</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;className=&quot;nav-link&quot;&nbsp;href=&quot;/quan-ly-nguoi-dung-v2&quot;&gt;&lt;svg&nbsp;xmlns=&quot;http://www.w3.org/2000/svg&quot;&nbsp;width=<br>&quot;16&quot;&nbsp;height=&quot;16&quot;&nbsp;fill=&quot;currentColor&quot;&nbsp;className=&quot;bi&nbsp;bi-person-raised-hand&quot;&nbsp;viewBox=&quot;0&nbsp;0&nbsp;16&nbsp;16&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">60</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;d=&quot;M6&nbsp;6.207v9.043a.75.75&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5&nbsp;0V10.5a.5.5&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0v4.75a.75.75&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5&nbsp;0v-8.5a.25.25<br>&nbsp;0&nbsp;1&nbsp;1&nbsp;.5&nbsp;0v2.5a.75.75&nbsp;0&nbsp;0&nbsp;0&nbsp;1.5&nbsp;0V6.5a3&nbsp;3&nbsp;0&nbsp;0&nbsp;0-3-3H6.236a1&nbsp;1&nbsp;0&nbsp;0&nbsp;1-.447-.106l-.33-.165A.83.83&nbsp;0&nbsp;0&nbsp;1&nbsp;5&nbsp;2.488V.75a.75.75<br>&nbsp;0&nbsp;0&nbsp;0-1.5&nbsp;0v2.083c0&nbsp;.715.404&nbsp;1.37&nbsp;1.044&nbsp;1.689L5.5&nbsp;5c.32.32.5.754.5&nbsp;1.207&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">61</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&nbsp;d=&quot;M8&nbsp;3a1.5&nbsp;1.5&nbsp;0&nbsp;1&nbsp;0&nbsp;0-3&nbsp;1.5&nbsp;1.5&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;3&quot;&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">62</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/svg&gt;Qu&#7843;n&nbsp;l&#253;&nbsp;ng&#432;&#7901;i&nbsp;D&#249;ng&nbsp;User&nbsp;2&lt;/a&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">63</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">64</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">65</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">66</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">67</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">68</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">69</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">70</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">71</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isAuthen&nbsp;==&nbsp;true&nbsp;?</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">72</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;main&nbsp;style={{&nbsp;border:&nbsp;&quot;1px&nbsp;solid&nbsp;red&quot;&nbsp;}}&nbsp;className=&quot;col-md-9&nbsp;ms-sm-auto&nbsp;col-lg-10&nbsp;px-md-4&quot;&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">73</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Routes&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">74</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route&nbsp;path=&quot;/&quot;&nbsp;element={&lt;Home&nbsp;/&gt;}&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">75</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route&nbsp;path=&quot;/quan-ly-user&quot;&nbsp;element={&lt;User&nbsp;/&gt;}&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">76</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route&nbsp;path=&quot;/quan-ly-phong-ban&quot;&nbsp;element={&lt;Phongban&nbsp;/&gt;}&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">77</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route&nbsp;path=&quot;/dang-nhap&quot;&nbsp;element={&lt;Dangnhap&nbsp;isAuthen={true}&nbsp;/&gt;}&nbsp;/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">78</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route&nbsp;path=&quot;/quan-ly-nguoi-dung-v2&quot;&nbsp;elment={&lt;User2/&gt;}/&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">79</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Routes&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">80</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/main&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">81</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">82</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">83</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">84</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">85</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">86</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">87</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Router&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber"></td><td class="changed"></td><td class="lineNumber">88</td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">21</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td><td class="lineNumber">89</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">22</td><td class="equal">&nbsp;&nbsp;);</td><td class="lineNumber">90</td><td class="equal">&nbsp;&nbsp;);</td>
+      </tr>
+      <tr>
+<td class="lineNumber">23</td><td class="equal">}</td><td class="lineNumber">91</td><td class="equal">}</td>
+      </tr>
+      <tr>
+<td class="lineNumber">24</td><td class="equal"></td><td class="lineNumber">92</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">25</td><td class="equal">export&nbsp;default&nbsp;App;</td><td class="lineNumber">93</td><td class="equal">export&nbsp;default&nbsp;App;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">26</td><td class="equal"></td><td class="lineNumber">94</td><td class="equal"></td>
+      </tr>
+  </table>
+</body>
