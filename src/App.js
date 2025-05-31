@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './Components/Page/Home/Home';
 import User from './Components/Page/ManageUser/User';
 import User2 from'./Components/Page/User2/UserV2';
+import Manage_Student from'./Components/Page/Manage_Student/Manage_Student';
+
 
 import './App.css';
 import Dangnhap from "./Components/Page/Dangnhap/Dangnhap";
@@ -74,7 +76,9 @@ function App() {
                     <Route path="/quan-ly-user" element={<User />} />
                    
                     <Route path="/dang-nhap" element={<Dangnhap isAuthen={true} />} />
-                    <Route path="/quan-ly-nguoi-dung-v2" elment={<User/>}/>
+                    <Route path="/quan-ly-nguoi-dung-v2" element={<User2/>}/>
+
+                    <Route path="/quan-ly-sinh-vien" element={<Manage_Student/>}/>
                   </Routes>
                 </main>
                 :
