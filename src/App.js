@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './Components/Page/Home/Home';
 import User from './Components/Page/ManageUser/User';
-import User2 from'./Components/Page/User2/UserV2';
-import Manage_Student from'./Components/Page/Manage_Student/Manage_Student';
+import User2 from './Components/Page/User2/UserV2';
+import Manage_Student from './Components/Page/Manage_Student/Manage_Student';
 
 
 import './App.css';
@@ -56,11 +56,18 @@ function App() {
                       <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
                     </svg>Đăng Nhập</a>
                   </li>
-                   <li className="nav-item">
+                  <li className="nav-item">
                     <a className="nav-link" href="/quan-ly-nguoi-dung-v2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-raised-hand" viewBox="0 0 16 16">
                       <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207" />
                       <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
                     </svg>Quản lý người Dùng User 2</a>
+                  </li>
+
+                  <li className="nav-item">
+                    <a className="nav-link" href="/quan-ly-sinh-vien"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-raised-hand" viewBox="0 0 16 16">
+                      <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207" />
+                      <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                    </svg>Quản lý sinh vien</a>
                   </li>
 
 
@@ -74,11 +81,11 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/quan-ly-user" element={<User />} />
-                   
-                    <Route path="/dang-nhap" element={<Dangnhap isAuthen={true} />} />
-                    <Route path="/quan-ly-nguoi-dung-v2" element={<User2/>}/>
 
-                    <Route path="/quan-ly-sinh-vien" element={<Manage_Student/>}/>
+                    <Route path="/dang-nhap" element={<Dangnhap isAuthen={true} />} />
+                    <Route path="/quan-ly-nguoi-dung-v2" element={<User2 />} />
+
+                    <Route path="/quan-ly-sinh-vien" element={<Manage_Student />} />
                   </Routes>
                 </main>
                 :
