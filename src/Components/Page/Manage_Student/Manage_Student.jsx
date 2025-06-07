@@ -4,7 +4,7 @@ import "./styles.css";
 const Manage_Student = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-
+    const [listStudent, setListStudent] = useState([]);
     const [students, setStudents] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
@@ -91,26 +91,41 @@ const Manage_Student = () => {
 
     };
 
-    const handleAddNew = () => {
+    const handleAddNewStudent = () => {
         debugger
         let abc = true;
-
         setShowModal(abc)
-
-        if (editingStudent) {
-
+        debugger
+        if (listStudent.length > 0) {
+            const maxId = Math.max(...listStudent.map(students => students.id));
+           students.id=maxId =+ 1;
         }
+        else {
+            students.id = 1;
+        }
+        
+    }
 
+    const handleEdit = async (student) => {
 
-
-
-    };
-
-    const handleEdit = (student) => {
-
-    };
+    }
 
     const handleDelete = (studentId) => {
+        console.log(">>>check student :", studentId)
+    }
+    const deletestudent = async (id) => {
+        try {
+            // tìm user
+            debugger
+             let studentFindIndex = listStudent.findIndex(x => x.id == id);
+            if (studentFindIndex =-1) {
+                alert("không tìm thấy student")
+            }
+
+        }
+        catch {
+            console.error("Lỗi xóa người dùng");
+        }
 
     };
 
@@ -189,7 +204,7 @@ const Manage_Student = () => {
                     </select>
                     <button
                         className="btn btn-success"
-                        onClick={handleAddNew}
+                        onClick={handleAddNewStudent}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus me-1" viewBox="0 0 16 16">
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
