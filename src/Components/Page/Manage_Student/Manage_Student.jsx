@@ -78,7 +78,7 @@ const Manage_Student = () => {
     };
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target; 
 
         formData[name] = value;
         setFormData({ ...formData })
@@ -104,8 +104,7 @@ const Manage_Student = () => {
             students.id = 1;
         }
         
-    }
-
+    }                                                                  
     const handleEdit = async (student) => {
 
     }
