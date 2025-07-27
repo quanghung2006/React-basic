@@ -1,73 +1,64 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 
+const enumTypeAction = {
+    Default: 0, AddNew: 1, Update: 2
+}
+
+
 const Manage_Student = () => {
+    const defaultFormData = () => {
+        return {
+            id: "",//id của sinh viên
+            student_code: "",//mã sinh viên 
+            name: "",//Tên sinh viên
+            dob: "",// ngày sinh
+            gender: "",//giới tính
+            faculty: "",//khoa hoc sinh
+            class: "",// lớp
+            email: "",//thông tin
+            phone: "",// số điện thoại
+            address: "",//thao tác
+        }
+    }
+
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    // listStudent => danh sách học sinh sinh viên
     const [listStudent, setListStudent] = useState([]);
-    const [students, setStudents] = useState([]);
+    // object data của modal
+    const [formData, setFormData] = useState(defaultFormData);
+
     const [showModal, setShowModal] = useState(false);
 
     const [searchText, setSearchText] = useState("");
     const [selectedFaculty, setSelectedFaculty] = useState("");
     const [editingStudent, setEditingStudent] = useState(null);
+    // 1 thêm mới, 2: upadate
+    const [typeAction, setTypeAction] = useState(enumTypeAction.Default);
 
     // Add states for select options
     const [facultyList] = useState([
-        { value: "cntt", name: "Công nghệ thông tin" },
-        { value: "kt", name: "Kinh tế" },
-        { value: "nn", name: "Ngoại ngữ" }
+        { value: "1", name: "Công nghệ thông tin" },
+        { value: "2", name: "Kinh tế" },
+        { value: "3", name: "Ngoại ngữ" }
     ]);
 
     const [genderList] = useState([
-        { value: "nam", name: "Nam" },
-        { value: "nu", name: "Nữ" },
-        { value: "khac", name: "Khác" }
+        { value: "1", name: "Nam" },
+        { value: "2", name: "Nữ" },
+        { value: "0", name: "Khác" }
     ]);
 
     const [classList] = useState([
-        { value: "K62-CACLC1", name: "K62-CACLC1" },
-        { value: "K62-CACLC2", name: "K62-CACLC2" },
-        { value: "K62-CACLC3", name: "K62-CACLC3" }
+        { value: "1", name: "K62-CACLC1" },
+        { value: "2", name: "K62-CACLC2" },
+        { value: "3", name: "K62-CACLC3" }
     ]);
 
-    const [formData, setFormData] = useState({
-        id: "",
-        name: "",
-        dob: "",
-        gender: "",
-        faculty: "",
-        class: "",
-        email: "",
-        phone: "",
-        address: "",
-    });
 
 
-
-
-    useEffect(() => {
-        // Mock data =>Tạo fake data
-        const mockStudents = [
-            {
-                id: "24000839", // mã sinh viên
-                name: "Đào Quang Hùng",// HỌ và tên
-                dob: "14-11-2006",// năm sinh
-                gender: "Nam",//giới tính 
-                faculty: "CNTT",//khoa
-                class: "K62-CACLC1", //lớp
-                email: "hungsenpai2006@email.com", //email
-                phone: "0866706151",// số ddien thoai
-            }
-        ];
-        // call api lấy danh sách sinh viên 
-
-        setStudents(mockStudents)
-
-
-
-
-    }, []);
 
     const handleSearch = (e) => {
 
@@ -77,10 +68,36 @@ const Manage_Student = () => {
 
     };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target; 
+    const handleInputChange = (fieldName, value) => {
+        debugger
 
-        formData[name] = value;
+        if (fieldName == 'student_code') {
+            formData.student_code = value;
+        }
+        if (fieldName == 'name') {
+            formData.name = value;
+        }
+        if (fieldName == 'dob') {
+            formData.dob = value;
+        }
+        if (fieldName == 'gender') {
+            formData.gender = value;
+        }
+        if (fieldName == 'faculty') {
+            formData.faculty = value;
+        }
+        if (fieldName == 'class') {
+            formData.class = value;
+        }
+        if (fieldName == 'email') {
+            formData.email = value;
+        }
+        if (fieldName == 'phone') {
+            formData.phone = value;
+        }
+
+
+        //  formData[fieldName] = value;
         setFormData({ ...formData })
         // setFormData(prev => ({ ...prev, [name]: value }))
         console.log('formData-onchannge', formData)
@@ -88,45 +105,117 @@ const Manage_Student = () => {
     };
 
     const resetForm = () => {
-
+        setFormData(defaultFormData)
     };
-
+    //thêm mới sinh viên//
     const handleAddNewStudent = () => {
-        debugger
-        let abc = true;
-        setShowModal(abc)
         debugger
         if (listStudent.length > 0) {
             const maxId = Math.max(...listStudent.map(students => students.id));
-           students.id=maxId =+ 1;
+            formData.id = maxId + 1;
         }
         else {
-            students.id = 1;
+            formData.id = 1;
         }
-        
-    }                                                                  
-    const handleEdit = async (student) => {
 
+        setFormData(formData);
+        setTypeAction(enumTypeAction.AddNew)
+        setShowModal(true)
+    }
+    // lưu người mới 
+    const SaveStudent = () => {
+        debugger
+        // thêm mới
+        if (typeAction == enumTypeAction.AddNew) {
+            let listStudentNew = listStudent;
+            listStudentNew.push(formData)
+            setListStudent([...listStudentNew])
+            setShowModal(false)
+            setTypeAction(enumTypeAction.Default)
+            setFormData(defaultFormData)
+        }
+        // update
+        if (typeAction === enumTypeAction.Update) {
+            const listStudentNew = listStudent;
+            debugger
+            listStudentNew.forEach(item => {
+                debugger
+                if (item.id === formData.id) {
+
+                    item.student_code = formData.student_code;
+                    item.name = formData.name;
+                    item.dob = formData.dob;
+                    item.gender = formData.gender;
+                    item.faculty = formData.faculty;
+                    item.email = formData.email;
+                    item.phone = formData.phone;
+                    item.address = formData.address;
+                };
+                return item;
+            })
+            setListStudent([...listStudentNew])
+            setShowModal(false)
+            setTypeAction(enumTypeAction.Default)
+            setFormData(defaultFormData)
+        }
+
+    }
+    const handleEdit = async (id_student) => {
+        debugger
+        //Tìm item (sinh viên) Cần update
+        let findItem = listStudent.find(x => x.id == id_student);
+        // let findItem = undefined;
+        // listStudent.forEach((x) => {
+        //     console.log('item', x)
+        //     if (x.id == id_student) {
+        //         findItem = x;
+        //     }
+        // })
+
+        //Gán các giá trị vào from data để hiện thị tren modal
+        // formData.student_code = findItem.student_code;
+
+        formData.id = findItem.id;
+        formData.student_code = findItem.student_code;
+        formData.name = findItem.name;
+        formData.dob = findItem.dob;
+        formData.gender = findItem.gender;
+        formData.faculty = findItem.faculty;
+        formData.class = findItem.class;
+        formData.email = findItem.email;
+        formData.phone = findItem.phone;
+        formData.address = findItem.address;
+
+        // let formDatanew = findItem;
+
+        //set (gán lại) lại giá trị      
+        setFormData(formData)
+        // bật modal để updata
+        setShowModal(true)
+        //set tyaction để biết modal  dùng trong trường hợp them mới hay updata
+        setTypeAction(enumTypeAction.Update)
     }
 
     const handleDelete = (studentId) => {
+        debugger
         console.log(">>>check student :", studentId)
+        //b1: tu student id tìm duoc sinh vien trong lisstudent (tìm vị tri trong mảng)
+        let studentFindIndex = listStudent.findIndex(x => x.id == studentId);
+        if (studentFindIndex == -1) {
+            alert("không tìm thấy student")
+        }
+        else {
+            alert("student tại vị trí " + studentFindIndex)
+            //b2: ấy duoc vi tri trong mang =>xóa khỏi mảng
+            listStudent.splice(studentFindIndex, 1);
+
+            setListStudent([...listStudent])
+
+
+            //b3:set lại giá trị lisstudent
+        }
     }
-    const deletestudent = async (id) => {
-        try {
-            // tìm user
-            debugger
-             let studentFindIndex = listStudent.findIndex(x => x.id == id);
-            if (studentFindIndex =-1) {
-                alert("không tìm thấy student")
-            }
 
-        }
-        catch {
-            console.error("Lỗi xóa người dùng");
-        }
-
-    };
 
     const handleSubmit = (e) => {
 
@@ -152,7 +241,81 @@ const Manage_Student = () => {
         `);
     };
 
-    console.log("students", students)
+    useEffect(() => {
+        // Mock data =>Tạo fake data
+        const mockStudents = [
+            {
+                id: 1,
+                student_code: "24000839", // mã sinh viên
+                name: "Đào Quang Hùng",// HỌ và tên
+                dob: "14-11-2006",// năm sinh
+                gender: "Nam",//giới tính 
+                faculty: "CNTT",//khoa
+                class: "K62-CACLC1", //lớp
+                email: "hungsenpai2006@email.com", //email
+                phone: "0866706151",// số ddien thoai
+            },
+            {
+                id: 2,
+                student_code: "123456", // mã sinh viên
+                name: "Đào Quang Hùng",// HỌ và tên
+                dob: "14-11-2006",// năm sinh
+                gender: "Nam",//giới tính 
+                faculty: "CNTT",//khoa
+                class: "K62-CACLC1", //lớp
+                email: "hungsenpai2006@email.com", //email
+                phone: "0866706151",// số ddien thoai
+            }
+        ];
+        // call api lấy danh sách sinh viên 
+
+        setListStudent(mockStudents)
+
+        debugger
+
+        // fetch('https://localhost:7285/api/student')
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw new Error('Network response was not ok ' + response.statusText);
+        //         }
+        //         return response.json(); // chuyển dữ liệu thành định dạng JSON
+        //     })
+        //     .then(data => {
+        //         console.log("Danh sách sinh viên:", data);
+        //         let listStudentmap = [];
+
+        //         if (data.length > 0) {
+        //             data.forEach(item => {
+        //                 debugger
+        //                 let data_student = {
+        //                     id: item.id,//id của sinh viên
+        //                     student_code: item.studentCode,//mã sinh viên 
+        //                     name: item.studentName,//Tên sinh viên
+        //                     dob: item.dob,// ngày sinh
+        //                     gender: item.gender,//giới tính
+        //                     faculty: item.faculty,//khoa hoc sinh
+        //                     class: item.class,// lớp
+        //                     email: item.email,//thông tin
+        //                     phone: item.phone,// số điện thoại
+        //                     address: item.address,//thao tác
+        //                 }
+        //                 listStudentmap.push(data_student)
+        //             })
+        //         }
+
+        //         setListStudent(listStudentmap)
+        //     })
+        //     .catch(error => {
+        //         console.error('Có lỗi khi gọi API:', error);
+        //     });
+
+
+    }, []);
+
+    console.log("listStudent", listStudent)
+    console.log("showModal", showModal)
+    console.log('typeAction', typeAction)
+    console.log('formData', formData)
 
     return (
         <div className="container-fluid p-4">
@@ -228,6 +391,7 @@ const Manage_Student = () => {
                         <table className="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>id</th>
                                     <th>Mã SV</th>
                                     <th>Họ và tên</th>
                                     <th>Ngày sinh</th>
@@ -242,10 +406,12 @@ const Manage_Student = () => {
                             <tbody>
 
                                 {
-                                    students.map((item, j) => {
-                                        debugger
+                                    listStudent?.map((item, j) => {
+
                                         return (<tr key={j}>
+
                                             <td>{item.id}</td>
+                                            <td>{item.student_code}</td>
                                             <td>{item.name}</td>
                                             <td>{item.dob}</td>
                                             <td>{item.gender}</td>
@@ -254,10 +420,7 @@ const Manage_Student = () => {
                                             <td>{item.email}</td>
                                             <td>{item.phone}</td>
                                             <td>
-                                                <button
-                                                    className="btn btn-sm btn-info me-1"
-                                                    title="Xem chi tiết"
-                                                    onClick={() => handleView({ id: 'SV001' })}
+                                                <button onClick={() => handleView(item.id)}
                                                 >
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
                                                         <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
@@ -267,7 +430,7 @@ const Manage_Student = () => {
                                                 <button
                                                     className="btn btn-sm btn-warning me-1"
                                                     title="Sửa thông tin"
-                                                    onClick={() => handleEdit({ id: 'SV001' })}
+                                                    onClick={() => handleEdit(item.id)}
                                                 >
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -277,7 +440,7 @@ const Manage_Student = () => {
                                                 <button
                                                     className="btn btn-sm btn-danger"
                                                     title="Xóa sinh viên"
-                                                    onClick={() => handleDelete('SV001')}
+                                                    onClick={() => handleDelete(item.id)}
                                                 >
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -301,7 +464,7 @@ const Manage_Student = () => {
             </div>
 
             <div className={`modal fade ${showModal == true ? 'show' : ''}`}
-                style={{ display: showModal ? 'block' : 'none' }}
+                style={{ display: showModal == true ? 'block' : 'none' }}
                 tabIndex="-1">
 
                 <div className="modal-dialog modal-lg">
@@ -312,7 +475,7 @@ const Manage_Student = () => {
                                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                                     <path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
                                 </svg>
-                                {editingStudent ? 'Sửa thông tin sinh viên' : 'Thêm sinh viên mới'}
+                                {typeAction == enumTypeAction.Update ? 'Sửa thông tin sinh viên' : 'Thêm sinh viên mới'}
                             </h5>
                             <button
                                 type="button"
@@ -320,21 +483,43 @@ const Manage_Student = () => {
                                 onClick={() => {
                                     setShowModal(false);
                                     resetForm();
+                                    setTypeAction(enumTypeAction.Default)
                                 }}
                             ></button>
                         </div>
                         <div className="modal-body">
 
                             <form onSubmit={handleSubmit}>
+
+                                <div className="row">
+                                    <div className="col-md-6 mb-3">
+                                        <label className="form-label">id sinh viên</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name="id"
+                                            value={formData.id}
+                                            //  onChange={handleInputChange}
+                                            required
+                                            disabled={editingStudent !== null}
+                                        />
+                                    </div>
+
+                                </div>
+
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
                                         <label className="form-label">Mã sinh viên</label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="id"
-                                            value={formData.id}
-                                            onChange={handleInputChange}
+                                            name="idstudent_code"
+                                            value={formData.student_code}
+                                            onChange={(e) => {
+                                                debugger
+                                                console.log(e.target.value)
+                                                handleInputChange('student_code', e.target.value)
+                                            }}
                                             required
                                             disabled={editingStudent !== null}
                                         />
@@ -346,7 +531,10 @@ const Manage_Student = () => {
                                             className="form-control"
                                             name="name"
                                             value={formData.name}
-                                            onChange={handleInputChange}
+                                            onChange={(e) => {
+                                                console.log(e.target.value)
+                                                handleInputChange('name', e.target.value)
+                                            }}
                                             required
                                         />
                                     </div>
@@ -360,7 +548,11 @@ const Manage_Student = () => {
                                             className="form-control"
                                             name="dob"
                                             value={formData.dob}
-                                            onChange={handleInputChange}
+                                            onChange={(e) => {
+                                                debugger
+                                                console.log(e.target.value)
+                                                handleInputChange('dob', e.target.value)
+                                            }}
                                             required
                                         />
                                     </div>
@@ -369,8 +561,11 @@ const Manage_Student = () => {
                                         <select
                                             className="form-select"
                                             name="gender"
-                                            value={formData.gender}
-                                            onChange={handleInputChange}
+                                            onChange={(e) => {
+                                                debugger
+                                                console.log(e.target.value)
+                                                handleInputChange('gender', e.target.value)
+                                            }}
                                             required
                                         >
                                             <option value="">Chọn giới tính</option>
@@ -390,7 +585,11 @@ const Manage_Student = () => {
                                             className="form-select"
                                             name="faculty"
                                             value={formData.faculty}
-                                            onChange={handleInputChange}
+                                            onChange={(e) => {
+                                                debugger
+                                                console.log(e.target.value)
+                                                handleInputChange('faculty', e.target.value)
+                                            }}
                                             required
                                         >
                                             <option value="">Chọn khoa</option>
@@ -407,7 +606,11 @@ const Manage_Student = () => {
                                             className="form-select"
                                             name="class"
                                             value={formData.class}
-                                            onChange={handleInputChange}
+                                            onChange={(e) => {
+                                                debugger
+                                                console.log(e.target.value)
+                                                handleInputChange('class', e.target.value)
+                                            }}
                                             required
                                         >
                                             <option value="">Chọn lớp</option>
@@ -425,15 +628,25 @@ const Manage_Student = () => {
                                         type="email"
                                         className="form-control"
                                         placeholder="Nhập email"
-                                        onChange={(e) => handleInputChange(e, 'email')}
+                                        value={formData.email}
+                                        onChange={(e) => {
+                                            debugger
+                                            console.log(e.target.value)
+                                            handleInputChange('email', e.target.value)
+                                        }}
                                         required
                                     />
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Điện Thoại</label>
                                     <input
-                                        className="form-select"
-                                        onChange={(e) => handleInputChange(e, 'phone')}
+                                        className="form-control"
+                                        value={formData.phone}
+                                        onChange={(e) => {
+                                            debugger
+                                            console.log(e.target.value)
+                                            handleInputChange('phone', e.target.value)
+                                        }}
                                         required
                                     />
                                 </div>
@@ -449,8 +662,8 @@ const Manage_Student = () => {
                                     >
                                         Đóng
                                     </button>
-                                    <button type="submit" className="btn btn-primary">
-                                        {editingStudent ? 'Cập nhật' : 'Lưu thông tin'}
+                                    <button onClick={SaveStudent} type="button" className="btn btn-primary"> Lưu
+
                                     </button>
                                 </div>
                             </form>
