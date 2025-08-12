@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from './Components/Page/Home/Home';
 import Manage_Student from './Components/Page/Manage_Student/Manage_Student';
-
+import Class_Manager from "./Components/Page/Class_Manager/Class_Manager";
 
 import './App.css';
 import Dangnhap from "./Components/Page/Dangnhap/Dangnhap";
@@ -68,7 +68,7 @@ function App() {
                 <main style={{ border: "1px solid red" }} className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                   <Routes>
                     <Route path="/dang-nhap" element={<Dangnhap isAuthen={true} />} />
-
+                    <Route path="/quan-ly-lop-hoc" element={<Class_Manager/>}/>
                     <Route path="/" element={<Home />} />
                     <Route path="/quan-ly-sinh-vien" element={<Manage_Student />} />
                   </Routes>

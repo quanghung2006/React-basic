@@ -10,7 +10,7 @@ const Manage_Student = () => {
     const defaultFormData = () => {
         return {
             id: "",//id của sinh viên
-            student_code: "",//mã sinh viên 
+            student_code: "",//mã sinh viên  
             name: "",//Tên sinh viên
             dob: "",// ngày sinh
             gender: "",//giới tính
@@ -106,6 +106,7 @@ const Manage_Student = () => {
 
     const resetForm = () => {
         setFormData(defaultFormData)
+
     };
     //thêm mới sinh viên//
     const handleAddNewStudent = () => {
@@ -431,6 +432,8 @@ const Manage_Student = () => {
                                                     className="btn btn-sm btn-warning me-1"
                                                     title="Sửa thông tin"
                                                     onClick={() => handleEdit(item.id)}
+
+                                                    
                                                 >
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -452,6 +455,7 @@ const Manage_Student = () => {
 
 
                                         )
+                                        
                                     })
                                 }
 
