@@ -45,19 +45,20 @@ export default function ClassManager() {
     }
     formData[fieldName] = fieldValue;
 
-   
+
     setFormData({ ...formData });
-   
+
 
   };
 
   const saveData = () => {
-    let abc = validateForm();
 
-
+    const fomdata = Object.values(formData).every(value => value.trim() == '');
+    if (fomdata) {
+      alert('Không thể lưu khi chưa nhập dữ liệu');
+      return;
+    }
     if (listClass.length > 0) {
-
-
       const maxId = Math.max(...listClass.map(item => item.id));
       formData.id = maxId + 1;
     }
@@ -68,13 +69,13 @@ export default function ClassManager() {
     listClass.push(formData);
     setShowModal(false);
     function_SetDefault_FormData();
-    
-
+    setFormData(fomdata);
 
   }
 
   const saveDatav2 = () => {
     debugger
+
 
 
     //tư id của fomdata ,duyệt qua từng đối tượng của list className ,nếu id = nhau thì update 
@@ -91,6 +92,8 @@ export default function ClassManager() {
     function_SetDefault_FormData();
     setListClass([...listClass])
     setShowModal(false);
+
+
   }
 
   const function_SetDefault_FormData = () => {
@@ -166,7 +169,7 @@ export default function ClassManager() {
       isValidate = false;
     }
 
-    if (formData.khoa_hoc.trim().length > 10 || formData.khoa_hoc=='') {
+    if (formData.khoa_hoc.trim().length > 10 || formData.khoa_hoc == '') {
       newErrors.push({
         fieldName: 'khoa_hoc',
         textError: 'không thể lưu khi ô trống '
@@ -174,27 +177,27 @@ export default function ClassManager() {
       isValidate = false;
     }
 
-    if (formData.thay_co_chu_nhiem.trim().length > 10 || formData.thay_co_chu_nhiem=='') {
+    if (formData.thay_co_chu_nhiem.trim().length > 10 || formData.thay_co_chu_nhiem == '') {
       newErrors.push({
         fieldName: 'thay_co_chu_nhiem',
-        textError:  'không thể lưu khi ô trống '
+        textError: 'không thể lưu khi ô trống '
       });
       isValidate = false;
     }
 
-    if (formData.giao_vien_tro_giang.trim().length > 10 || formData.giao_vien_tro_giang=='') {
+    if (formData.giao_vien_tro_giang.trim().length > 10 || formData.giao_vien_tro_giang == '') {
       newErrors.push({
         fieldName: 'giao_vien_tro_giang',
         textError: 'không thể lưu khi ô trống '
-        
+
       })
-     
+
       isValidate = false;
     }
 
     setErrors([])
     setFormData(formData)
-  
+
   };
 
 
