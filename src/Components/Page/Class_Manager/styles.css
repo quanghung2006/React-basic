@@ -1,0 +1,148 @@
+/* ClassManager.css */
+/* Custom styles for Student Management System */
+.class-manager {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.class-manager h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.class-manager .search-input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  transition: border-color .2s;
+}
+
+.class-manager .search-input:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+.class-manager table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.class-manager th,
+.class-manager td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.class-manager thead {
+  background: #f7f7f7;
+}
+
+.class-manager tbody tr:hover {
+  background: #fafafa;
+}
+
+.class-manager .action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color .2s;
+}
+
+.class-manager .action-btn.edit {
+  color: #007BFF;
+}
+
+.class-manager .action-btn.edit:hover {
+  color: #0056b3;
+}
+
+.class-manager .action-btn.delete {
+  color: #dc3545;
+}
+
+.class-manager .action-btn.delete:hover {
+  color: #a71d2a;
+}
+
+.class-manager .form-section {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.class-manager .form-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.class-manager .form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.class-manager .form-grid input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color .2s;
+}
+
+.class-manager .form-grid input:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+.class-manager .btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background .2s;
+}
+
+.class-manager .btn.add {
+  background: #28a745;
+  color: #fff;
+}
+
+.class-manager .btn.add:hover {
+  background: #218838;
+}
+
+.class-manager .btn.save {
+  background: #007BFF;
+  color: #fff;
+  margin-right: 0.5rem;
+}
+
+.class-manager .btn.save:hover {
+  background: #0056b3;
+}
+
+.class-manager .btn.cancel {
+  background: #6c757d;
+  color: #fff;
+}
+
+.class-manager .btn.cancel:hover {
+  background: #5a6268;
+}

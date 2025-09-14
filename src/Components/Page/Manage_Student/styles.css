@@ -53,6 +53,7 @@ body {
 .form-control, .form-select {
     border-radius: 0.25rem;
     border: 1px solid #ced4da;
+    text-align: center;
 }
 
 .form-control:focus, .form-select:focus {
