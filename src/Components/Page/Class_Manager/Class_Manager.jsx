@@ -16,7 +16,7 @@ export default function ClassManager() {
   ])
 
 
-
+ 
   // lưu lớp mới
   const handleInputChange = (fieldName, fieldValue) => {
     // ma_lop,ten_lop
@@ -47,54 +47,58 @@ export default function ClassManager() {
 
 
     setFormData({ ...formData });
-
+    
 
   };
 
-  const saveData = () => {
+  const save = (type) => {
 
-    const fomdata = Object.values(formData).every(value => value.trim() == '');
-    if (fomdata) {
-      alert('Không thể lưu khi chưa nhập dữ liệu');
+    debugger
+    let isValidate = validateForm()
+    if (isValidate == false) {
       return;
     }
-    if (listClass.length > 0) {
-      const maxId = Math.max(...listClass.map(item => item.id));
-      formData.id = maxId + 1;
-    }
-    else {
-      formData.id = 0;
-
-    }
-    listClass.push(formData);
-    setShowModal(false);
-    function_SetDefault_FormData();
-    setFormData(fomdata);
-
-  }
-
-  const saveDatav2 = () => {
-    debugger
 
 
+    if (type == enumTypeAction.AddNew) {
 
-    //tư id của fomdata ,duyệt qua từng đối tượng của list className ,nếu id = nhau thì update 
-    listClass.forEach(item => {
-      debugger
-      if (item.id == formData.id) {
-        item.ten_lop = formData.ten_lop
-        item.ma_lop = formData.ma_lop
-        item.giao_vien_tro_giang = formData.giao_vien_tro_giang
-        item.khoa_hoc = formData.khoa_hoc
-        item.thay_co_chu_nhiem = formData.thay_co_chu_nhiem
+      if (listClass.length > 0) {
+        const maxId = Math.max(...listClass.map(item => item.id));
+        formData.id = maxId + 1;
       }
-    })
-    function_SetDefault_FormData();
-    setListClass([...listClass])
-    setShowModal(false);
+      else {
+        formData.id = 0;
 
+      }
+      listClass.push(formData);
+      setShowModal(false);
+      function_SetDefault_FormData();
+      setFormData(formData);
+
+
+    }
+    else if (type == enumTypeAction.Update) {
+      //tư id của fomdata ,duyệt qua từng đối tượng của list className ,nếu id = nhau thì update 
+      listClass.forEach(item => {
+        debugger
+        if (item.id == formData.id) {
+          item.ten_lop = formData.ten_lop
+          item.ma_lop = formData.ma_lop
+          item.giao_vien_tro_giang = formData.giao_vien_tro_giang
+          item.khoa_hoc = formData.khoa_hoc
+          item.thay_co_chu_nhiem = formData.thay_co_chu_nhiem
+        }
+      })
+      function_SetDefault_FormData();
+      setListClass([...listClass])
+      setShowModal(false);
+      setFormData({ ...formData })
+      setErrors(errors);
+
+    }
 
   }
+
 
   const function_SetDefault_FormData = () => {
     let formDataDefault = { id: '0', ma_lop: '', ten_lop: '', khoa_hoc: '', thay_co_chu_nhiem: '', giao_vien_tro_giang: '' }
@@ -111,6 +115,7 @@ export default function ClassManager() {
     if (findItem != undefined) {
       formData.id = findItem.id;
       formData.ma_lop = findItem.ma_lop;
+      formData.khoa_hoc = findItem.khoa_hoc;
       formData.ten_lop = findItem.ten_lop;
       formData.thay_co_chu_nhiem = findItem.thay_co_chu_nhiem;
       formData.giao_vien_tro_giang = findItem.giao_vien_tro_giang;
@@ -118,6 +123,7 @@ export default function ClassManager() {
       setFormData({ ...formData })
       setShowModal(true)
       setTypeAction(2)
+      setErrors(errors)
 
     }
   }
@@ -188,15 +194,17 @@ export default function ClassManager() {
     if (formData.giao_vien_tro_giang.trim().length > 10 || formData.giao_vien_tro_giang == '') {
       newErrors.push({
         fieldName: 'giao_vien_tro_giang',
-        textError: 'không thể lưu khi ô trống '
+        textError: 'không thể lưu khi ô trống ',
 
       })
 
       isValidate = false;
     }
 
-    setErrors([])
+    setErrors([...newErrors])
     setFormData(formData)
+
+    return isValidate;  
 
   };
 
@@ -212,6 +220,8 @@ export default function ClassManager() {
 
     // [] =>CHẠY LẦN ĐẦU VÀO PAPE  
   }, []);
+
+
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
@@ -313,7 +323,7 @@ export default function ClassManager() {
                     </svg>
 
                     {
-                      typeAction == 1 ? 'Thêm mới lớp học' : 'cập nhập lớp học'
+                      typeAction == enumTypeAction.AddNew ? 'Thêm mới lớp học' : 'cập nhập lớp học'
                     }
 
                     {/* {typeAction == enumTypeAction.Update ? 'Sửa thông tin sinh viên' : 'Thêm sinh viên mới'} */}
@@ -407,7 +417,7 @@ export default function ClassManager() {
                   <div className="row">
                     <div className="col-md-6 mb-3">
                       <label className="form-label"> Khóa Học  </label>
-                      <span style={{ color: "red", fontSize: "0.9em", marginTop: "4px", }}>
+                     
                         <input
                           name="khoa_hoc"
                           title="Khóa Học "
@@ -421,16 +431,17 @@ export default function ClassManager() {
                           }}
                           required
                         />
+                        
                         {
                           errors?.map((item, j) => {
                             if (item.fieldName == 'khoa_hoc') {
                               return (
-                                <text>{item.textError} </text>
+                               <span style={{ color: "red", fontSize: "0.9em", marginTop: "4px", }}> {item.textError} </span>
                               )
                             }
                           })
                         }
-                      </span>
+                      
                     </div>
                   </div>
 
@@ -499,10 +510,6 @@ export default function ClassManager() {
 
 
                 </div>
-
-
-
-
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal"
 
@@ -510,6 +517,7 @@ export default function ClassManager() {
                       () => {
                         debugger
                         function_SetDefault_FormData()
+                        setErrors([])
                         setShowModal(false)
                       }
                     } >
@@ -519,19 +527,7 @@ export default function ClassManager() {
                   <button
                     onClick={() => {
                       debugger
-                      if (typeAction == 1) {
-                        saveData()
-
-                      }
-                      else {
-                        if (typeAction == 2) {
-                          saveDatav2()
-                        }
-
-
-                      }
-
-
+                      save(typeAction)
                     }}
                     type="button" className="btn btn-primary"> Lưu </button>
                 </div>
