@@ -1,7 +1,15 @@
 import React, { useState, useEffect, Fragment } from "react";
 
 export default function Demo() {
+<<<<<<< Updated upstream
     const [count, setCount] = useState(0)
+=======
+    const [count, setCount] = useState()
+    const enumTypeAction = {
+        Default: 0, AddNew: 1, Update: 2
+    }
+
+>>>>>>> Stashed changes
 
     const [aray, setArray] = useState([1, 2, 3, 4])
 
@@ -24,6 +32,43 @@ export default function Demo() {
     useEffect(() => {
     }, [])
 
+<<<<<<< Updated upstream
+=======
+    const AddNewLeCout = () => {
+        setCongnhan({ ten: '', tuoi: '', index: null });
+        setTypeAction(enumTypeAction.AddNew);
+
+    }
+
+
+    const SaveLeCout = () => {
+        if (typeAction === enumTypeAction.Update) {
+            const updatedList = listCongnhan.map((item, index) =>
+                index === congnhan.index ?{ ten: congnhan.ten, tuoi: congnhan.tuoi } : item
+            );
+            setListCongnhan(updatedList);
+
+        }
+        else if (typeAction === enumTypeAction.AddNew) {
+            setListCongnhan([...listCongnhan, { ten: congnhan.ten, tuoi: congnhan.tuoi }]);
+        }
+        setCongnhan({ ten: '', tuoi: 0 });
+        setTypeAction(enumTypeAction.Default);
+    };
+
+
+    const handleCouEdit = () => {
+        let findIndex = listCongnhan.find();
+           congnhan.ten=findIndex.ten;
+           congnhan.tuoi=findIndex.tuoi;
+
+    }
+
+
+
+
+
+>>>>>>> Stashed changes
     return (
         <Fragment>
             <h1>Giá Trị Của Count là : {count}</h1>
