@@ -1,21 +1,18 @@
 import React, { useState, useEffect, Fragment } from "react";
 
 export default function Demo() {
-<<<<<<< Updated upstream
     const [count, setCount] = useState(0)
-=======
-    const [count, setCount] = useState()
     const enumTypeAction = {
         Default: 0, AddNew: 1, Update: 2
     }
 
->>>>>>> Stashed changes
 
     const [aray, setArray] = useState([1, 2, 3, 4])
 
 
-    const [congnhan, setCongnhan] = useState({ ten: '', tuoi: 0 })
+    const [congnhan, setCongnhan] = useState({ ten: '', tuoi: '' })
     const [listCongnhan, setListCongnhan] = useState([{ ten: 'hung', tuoi: 20 }, { ten: 'ha', tuoi: 21 }, { ten: 'công', tuoi: 20 }])
+    const [typeAction, setTypeAction] = useState(enumTypeAction.Default);
 
 
 
@@ -32,8 +29,6 @@ export default function Demo() {
     useEffect(() => {
     }, [])
 
-<<<<<<< Updated upstream
-=======
     const AddNewLeCout = () => {
         setCongnhan({ ten: '', tuoi: '', index: null });
         setTypeAction(enumTypeAction.AddNew);
@@ -60,7 +55,7 @@ export default function Demo() {
     const handleCouEdit = () => {
         let findIndex = listCongnhan.find();
            congnhan.ten=findIndex.ten;
-           congnhan.tuoi=findIndex.tuoi;
+           congnhan.tuoi=findIndex.tuoi
 
     }
 
@@ -68,7 +63,6 @@ export default function Demo() {
 
 
 
->>>>>>> Stashed changes
     return (
         <Fragment>
             <h1>Giá Trị Của Count là : {count}</h1>
@@ -97,14 +91,28 @@ export default function Demo() {
 
             </div>
             <h1>hiện thị danh sách trong 1 mảng object</h1>
-            <button>Thêm mới</button>
+            <button onClick={AddNewLeCout}>Thêm mới </button>
 
-            <div className="data-object" style={{ margin: '15px',background:'#ddd' }}>
-                
-                <input value={congnhan.ten} placeholder="Tên" />
-                <input value={congnhan.tuoi} placeholder="tuổi" />
+            <div className="data-object" style={{ margin: '15px', background: '#ddd' }}>
 
-                <button>Lưu</button>
+                <input
+                    type="text"
+                    onChange={(e) => {
+                        setCongnhan({ ...congnhan, ten: e.target.value })
+
+                    }}
+                    value={congnhan.ten}
+                    placeholder="Tên" />
+                <input
+                    type="text"
+                    onChange={(e) => {
+                        setCongnhan({ ...congnhan, tuoi: e.target.value })
+                    }}
+
+                    value={congnhan.tuoi}
+                    placeholder="tuổi" />
+
+                <button onClick={SaveLeCout}> Lưu</button>
             </div>
 
 
@@ -115,23 +123,13 @@ export default function Demo() {
                     return (
                         <div style={{ padding: '15px' }}>
                             {item.ten}   {'----'}  {item.tuoi}
-                            <button>sửa</button>
+                            <button onClick={() => handleCouEdit}> sửa</button>
                         </div>
 
                     )
                 }
                 )
             }
-
-
-
-
-
-
-
-
-
-
 
 
         </Fragment>
